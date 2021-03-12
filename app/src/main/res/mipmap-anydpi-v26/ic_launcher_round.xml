@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Icons made by www.flaticon.com, https://smashicons.com/  -->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/main_background"/>
+    <foreground android:drawable="@mipmap/ic_launcher_foreground"/>
+</adaptive-icon>

@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.LadderGame" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#725b53</item>
+        <item name="colorPrimaryVariant">#4b2c20</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#a1887f</item>
+        <item name="colorSecondaryVariant">#4b2c20</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="ResultBoxStyle">
+        <item name="android:layout_width">@dimen/player_box_width</item>
+        <item name="android:layout_height">@dimen/player_box_height</item>
+        <item name="android:background">@drawable/result_box_selector</item>
+        <item name="android:textOn"></item>
+        <item name="android:textOff"></item>
+    </style>
+</resources>

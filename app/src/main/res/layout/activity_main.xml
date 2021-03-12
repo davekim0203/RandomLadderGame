@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.davek.laddergame.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_background"
+        tools:context=".MainActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/players_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:id="@+id/tv_player1"
+                android:layout_width="@dimen/player_box_width"
+                android:layout_height="@dimen/player_box_height"
+                android:background="@color/player_1_path"
+                android:onClick="@{() -> vm.onPlayerClick(1)}"
+                app:layout_constraintEnd_toStartOf="@+id/tv_player2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/tv_player2"
+                android:layout_width="@dimen/player_box_width"
+                android:layout_height="@dimen/player_box_height"
+                android:background="@color/player_2_path"
+                android:onClick="@{() -> vm.onPlayerClick(2)}"
+                app:layout_constraintEnd_toStartOf="@+id/tv_player3"
+                app:layout_constraintStart_toEndOf="@+id/tv_player1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/tv_player3"
+                android:layout_width="@dimen/player_box_width"
+                android:layout_height="@dimen/player_box_height"
+                android:background="@color/player_3_path"
+                android:onClick="@{() -> vm.onPlayerClick(3)}"
+                android:visibility="@{vm.playerCount >= 3 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toStartOf="@+id/tv_player4"
+                app:layout_constraintStart_toEndOf="@+id/tv_player2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/tv_player4"
+                android:layout_width="@dimen/player_box_width"
+                android:layout_height="@dimen/player_box_height"
+                android:background="@color/player_4_path"
+                android:onClick="@{() -> vm.onPlayerClick(4)}"
+                android:visibility="@{vm.playerCount >= 4 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toStartOf="@+id/tv_player5"
+                app:layout_constraintStart_toEndOf="@+id/tv_player3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/tv_player5"
+                android:layout_width="@dimen/player_box_width"
+                android:layout_height="@dimen/player_box_height"
+                android:background="@color/player_5_path"
+                android:onClick="@{() -> vm.onPlayerClick(5)}"
+                android:visibility="@{vm.playerCount >= 5 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toStartOf="@+id/tv_player6"
+                app:layout_constraintStart_toEndOf="@+id/tv_player4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/tv_player6"
+                android:layout_width="@dimen/player_box_width"
+                android:layout_height="@dimen/player_box_height"
+                android:background="@color/player_6_path"
+                android:onClick="@{() -> vm.onPlayerClick(6)}"
+                android:visibility="@{vm.playerCount >= 6 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_player5"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.davek.laddergame.customview.LadderView
+            android:id="@+id/ladder_board"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:playerCount="@{vm.playerCount}"
+            app:showAnimatedResult="@{vm.playerResultDetails}"
+            app:drawnResults="@{vm.playerResultDetailsMap}"
+            app:ladderSteps="@{vm.ladderStepsDetail}"
+            app:animationDuration="@{vm.animationSpeed}"
+            app:layout_constraintBottom_toTopOf="@+id/results_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/players_container" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/results_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btn_decrease">
+
+            <ToggleButton
+                android:id="@+id/tv_result1"
+                style="@style/ResultBoxStyle"
+                app:layout_constraintEnd_toStartOf="@+id/tv_result2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ToggleButton
+                android:id="@+id/tv_result2"
+                style="@style/ResultBoxStyle"
+                app:layout_constraintEnd_toStartOf="@+id/tv_result3"
+                app:layout_constraintStart_toEndOf="@+id/tv_result1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ToggleButton
+                android:id="@+id/tv_result3"
+                style="@style/ResultBoxStyle"
+                android:visibility="@{vm.playerCount >= 3 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toStartOf="@+id/tv_result4"
+                app:layout_constraintStart_toEndOf="@+id/tv_result2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ToggleButton
+                android:id="@+id/tv_result4"
+                style="@style/ResultBoxStyle"
+                android:visibility="@{vm.playerCount >= 4 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toStartOf="@+id/tv_result5"
+                app:layout_constraintStart_toEndOf="@+id/tv_result3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ToggleButton
+                android:id="@+id/tv_result5"
+                style="@style/ResultBoxStyle"
+                android:visibility="@{vm.playerCount >= 5 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toStartOf="@+id/tv_result6"
+                app:layout_constraintStart_toEndOf="@+id/tv_result4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ToggleButton
+                android:id="@+id/tv_result6"
+                style="@style/ResultBoxStyle"
+                android:visibility="@{vm.playerCount >= 6 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_result5"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btn_decrease"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_decrease"
+            android:onClick="@{() -> vm.onPlayerCountDecreaseButtonClick()}"
+            android:enabled="@{vm.isGameRunning==false}"
+            app:layout_constraintWidth_percent="0.12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_increase" />
+
+        <Button
+            android:id="@+id/btn_increase"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_increase"
+            android:onClick="@{() -> vm.onPlayerCountIncreaseButtonClick()}"
+            android:enabled="@{vm.isGameRunning==false}"
+            app:layout_constraintWidth_percent="0.12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_create_steps"
+            app:layout_constraintStart_toEndOf="@+id/btn_decrease" />
+
+        <Button
+            android:id="@+id/btn_create_steps"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_ready"
+            android:maxLines="1"
+            app:autoSizeMaxTextSize="14sp"
+            app:autoSizeMinTextSize="10sp"
+            app:autoSizeStepGranularity="1sp"
+            app:autoSizeTextType="uniform"
+            android:enabled="@{vm.isGameRunning==false}"
+            android:onClick="@{() -> vm.onCreateStepsButtonClick()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_reset"
+            app:layout_constraintStart_toEndOf="@+id/btn_increase" />
+
+        <Button
+            android:id="@+id/btn_reset"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_reset"
+            android:maxLines="1"
+            app:autoSizeMaxTextSize="14sp"
+            app:autoSizeMinTextSize="10sp"
+            app:autoSizeStepGranularity="1sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_animation_speed"
+            app:layout_constraintStart_toEndOf="@+id/btn_create_steps" />
+
+        <Button
+            android:id="@+id/btn_animation_speed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_speed"
+            android:maxLines="1"
+            app:autoSizeMaxTextSize="14sp"
+            app:autoSizeMinTextSize="10sp"
+            app:autoSizeStepGranularity="1sp"
+            app:autoSizeTextType="uniform"
+            android:onClick="@{() -> vm.onAnimationSpeedButtonClick()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_reset" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

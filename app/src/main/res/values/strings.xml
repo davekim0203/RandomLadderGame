@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Random Ladder Game</string>
+
+    <string-array name="animation_speed_options">
+        <item>Off</item>
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+
+    <string name="button_decrease">-</string>
+    <string name="button_increase">+</string>
+    <string name="button_ready">Ready</string>
+    <string name="button_reset">Reset</string>
+    <string name="button_speed">Speed</string>
+
+    <string name="start_new_game_dialog_title">Reset Game</string>
+    <string name="start_new_game_dialog_message">Do you want to quit the current game?</string>
+    <string name="start_new_game_dialog_positive_button">Yes</string>
+    <string name="start_new_game_dialog_negative_button">No</string>
+
+    <string name="animation_speed_dialog_title">Speed</string>
+    <string name="animation_speed_dialog_positive_button">Save</string>
+    <string name="animation_speed_dialog_negative_button">Cancel</string>
+</resources>
