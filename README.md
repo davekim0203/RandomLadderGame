@@ -5,7 +5,7 @@ Simple ghost leg game
 
 <img alt='Ladder game play gif' src='https://github.com/davekim0203/RandomLadderGame/blob/master/screenshots/ladder_game_play.gif' height="450"/></a>
 <img alt='Ladder speed dialog' src='https://github.com/davekim0203/RandomLadderGame/blob/master/screenshots/ladder_game_speed_dialog.png' height="450"/></a>
-<img alt='Ladder game landscape' src='https://github.com/davekim0203/RandomLadderGame/blob/master/screenshots/ladder_game_landscape.png' width="500"/></a>
+<img alt='Ladder game landscape' src='https://github.com/davekim0203/RandomLadderGame/blob/master/screenshots/ladder_game_landscape.png' width="450"/></a>
 
 How to play:
 
