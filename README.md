@@ -3,6 +3,10 @@
 ## About Random Ladder Game
 Simple ghost leg game
 
+<img alt='Ladder game play gif' src='https://github.com/davekim0203/RandomLadderGame/blob/master/screenshots/ladder_game_play.gif' height="450"/></a>
+<img alt='Ladder speed dialog' src='https://github.com/davekim0203/RandomLadderGame/blob/master/screenshots/ladder_game_speed_dialog.png' height="450"/></a>
+<img alt='Ladder game landscape' src='https://github.com/davekim0203/RandomLadderGame/blob/master/screenshots/ladder_game_landscape.png' width="500"/></a>
+
 How to play:
 
 1. Set the number of players with +/- buttons
@@ -18,8 +22,8 @@ This app includes:
  - Kotlin
  - MVVM architectural pattern
  - Custom View
- - Animation for drawing path
- - Data binding
+ - Animation
+ - Data Binding
  - Material Design
 
 ## App Icon
